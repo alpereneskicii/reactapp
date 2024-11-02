@@ -1,0 +1,17 @@
+.app {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+  }
+  .card {
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    padding: 16px;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  

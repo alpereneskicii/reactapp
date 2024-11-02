@@ -1,25 +1,25 @@
 import React from 'react'
-import '../assets/template.css';
+import '../assets/contract.css';
 
 const Contract = () => {
   function hiddenDiv(event) {
     var div_check = event.target.checked
-    if(div_check) {
-        document.getElementById('v2').hidden = false;
+    if (div_check) {
+      document.getElementById('v2').hidden = false;
     }
     else {
-        document.getElementById('v2').hidden = true;
-    }   
-}
-return (
-  <div className="contract"id="v1">
-    <div>
-      <label className="label" htmlFor="contract">Sözleşme Koşullarini Kabul et</label>
+      document.getElementById('v2').hidden = true;
+    }
+  }
+  return (
+    <div className="contract card" id="v1">
+      <div>
+        Sözleşme koşullarını kabul et.
+      </div>
+      <div>
+        <input className="checkbox" type="checkbox" id="contract" onClick={hiddenDiv} />
+      </div>
     </div>
-    <div className="checkboxDiv">
-      <input className="checkbox" type="checkbox" id="contract" onClick={ hiddenDiv }/>
-    </div>
-  </div>
   )
 }
 

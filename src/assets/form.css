@@ -1,0 +1,21 @@
+.form-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .form-container__item {
+    flex: 1 1 calc(50% - 10px);
+  }
+  
+  .form-container__item__input {
+    width: 100%;
+  }
+  
+  .form__inputs__btn {
+    padding: 4px;
+    color: rgb(128, 128, 33);
+    background-color: white;
+  }
+  

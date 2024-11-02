@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import '../assets/template.css';
-
+import "../assets/form.css"
 const UserRegister = () => {
     const [users, setUsers] = useState([]);
 
@@ -12,7 +11,7 @@ const UserRegister = () => {
         var u_email = event.target.elements.u_email.value;
         var u_age = event.target.elements.u_age.value;
 
-        if (!u_surname && !u_name  ) {
+        if (!u_surname && !u_name) {
             window.alert('isim ve Soyisim alani bos birakilamaz!')
             return;
         }
@@ -33,7 +32,7 @@ const UserRegister = () => {
         };
 
         setUsers(prev => [...prev, user]);
-        
+
         // Formu temizleme
         event.target.elements.u_name.value = "";
         event.target.elements.u_surname.value = "";
@@ -42,22 +41,25 @@ const UserRegister = () => {
     }
 
     return (
-        <div className='form__inputs__item' hidden id="v2">
-            <form className='form_inputs' onSubmit={saveUser}>
-
-                <label className="nameLabel" htmlFor="name">Ad</label>
-                <input className='nameInput' type="text" name="u_name" id="u_name" />
-                
-                <label className="surnameLabel" htmlFor="surname">Soyad</label>
-                <input className='surnameInput' type="text" name="u_surname" id="u_surname" />
-
-                <label className="mailLabel" htmlFor="email">Email</label>
-                <input className='mailInput' type="text" name="u_email" id="u_email" />
-
-                <label className="yasLabel" htmlFor="age">Yaş</label>
-                <input className='yasInput' type="text" name="u_age" id="u_age" />
-                
-                <button className='form__inputs__btn' type="submit">Ekle</button>
+        <div className='card' hidden id="v2">
+            <form className='form-container' onSubmit={saveUser}>
+                <div className='form-container__item'>
+                    <label htmlFor="name">Ad</label>
+                    <input className='form-container__item__input' type="text" name="u_name" id="u_name" />
+                </div>
+                <div className='form-container__item'>
+                    <label htmlFor="surname">Soyad</label>
+                    <input className='form-container__item__input' type="text" name="u_surname" id="u_surname" />
+                </div>
+                <div className='form-container__item'>
+                    <label htmlFor="email">Email</label>
+                    <input className='form-container__item__input' type="text" name="u_email" id="u_email" />
+                </div>
+                <div className='form-container__item'>
+                    <label htmlFor="age">Yaş</label>
+                    <input className='form-container__item__input' type="text" name="u_age" id="u_age" />
+                </div>
+                <button className='form__inputs__btn' type="submit">Kaydet</button>
 
             </form>
 
