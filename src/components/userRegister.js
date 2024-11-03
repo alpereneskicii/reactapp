@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import List from './list';
 import "../assets/form.css"
+
 const UserRegister = () => {
     const [users, setUsers] = useState([]);
 
     function saveUser(event) {
         event.preventDefault();
 
-        var u_name = event.target.elements.u_name.value.trim();
-        var u_surname = event.target.elements.u_surname.value;
-        var u_email = event.target.elements.u_email.value;
-        var u_age = event.target.elements.u_age.value;
+        var u_name = event.target.elements.name.value.trim();
+        var u_surname = event.target.elements.surname.value;
+        var u_email = event.target.elements.email.value;
+        var u_age = event.target.elements.age.value;
 
         if (!u_surname && !u_name) {
             window.alert('isim ve Soyisim alani bos birakilamaz!')
@@ -34,43 +36,34 @@ const UserRegister = () => {
         setUsers(prev => [...prev, user]);
 
         // Formu temizleme
-        event.target.elements.u_name.value = "";
-        event.target.elements.u_surname.value = "";
-        event.target.elements.u_email.value = "";
-        event.target.elements.u_age.value = "";
+        event.target.elements.name.value = "";
+        event.target.elements.surname.value = "";
+        event.target.elements.email.value = "";
+        event.target.elements.age.value = "";
     }
 
     return (
-        <div className='card' hidden id="v2">
+        <div className='card'>
             <form className='form-container' onSubmit={saveUser}>
                 <div className='form-container__item'>
                     <label htmlFor="name">Ad</label>
-                    <input className='form-container__item__input' type="text" name="u_name" id="u_name" />
+                    <input className='form-container__item__input' type="text" name="name" id="name" />
                 </div>
                 <div className='form-container__item'>
                     <label htmlFor="surname">Soyad</label>
-                    <input className='form-container__item__input' type="text" name="u_surname" id="u_surname" />
+                    <input className='form-container__item__input' type="text" name="surname" id="surname" />
                 </div>
                 <div className='form-container__item'>
                     <label htmlFor="email">Email</label>
-                    <input className='form-container__item__input' type="text" name="u_email" id="u_email" />
+                    <input className='form-container__item__input' type="text" name="email" id="email" />
                 </div>
                 <div className='form-container__item'>
                     <label htmlFor="age">Yaş</label>
-                    <input className='form-container__item__input' type="text" name="u_age" id="u_age" />
+                    <input className='form-container__item__input' type="text" name="age" id="age" />
                 </div>
                 <button className='form__inputs__btn' type="submit">Kaydet</button>
-
             </form>
-
-            <h1>Liste</h1>
-            {
-                users.map((user, index) => (
-                    <div className='user-details' key={index}>
-                        <h2>{user.name} {user.surname}</h2>
-                    </div>
-                ))
-            }
+            <List users={users} />
         </div>
     );
 }
