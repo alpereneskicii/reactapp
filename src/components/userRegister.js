@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import List from './list';
 import "../assets/form.css"
 
+const FormContest = ({label, contents}) => {
+    return (
+        <div className='form-container__item'>
+            <label htmlFor={contents}>{label}</label>
+            <input className='form-container__item__input' type="text" name={contents} id={contents} />
+        </div>
+    )
+}
 const UserRegister = () => {
     const [users, setUsers] = useState([]);
 
@@ -45,22 +53,10 @@ const UserRegister = () => {
     return (
         <div className='card'>
             <form className='form-container' onSubmit={saveUser}>
-                <div className='form-container__item'>
-                    <label htmlFor="name">Ad</label>
-                    <input className='form-container__item__input' type="text" name="name" id="name" />
-                </div>
-                <div className='form-container__item'>
-                    <label htmlFor="surname">Soyad</label>
-                    <input className='form-container__item__input' type="text" name="surname" id="surname" />
-                </div>
-                <div className='form-container__item'>
-                    <label htmlFor="email">Email</label>
-                    <input className='form-container__item__input' type="text" name="email" id="email" />
-                </div>
-                <div className='form-container__item'>
-                    <label htmlFor="age">Yaş</label>
-                    <input className='form-container__item__input' type="text" name="age" id="age" />
-                </div>
+                <FormContest label={"Ad"} contents={"name"}/>
+                <FormContest label={"Soyad"} contents={"surname"}/>
+                <FormContest label={"Email"} contents={"email"}/>
+                <FormContest label={"Yaş"} contents={"age"}/>
                 <button className='form__inputs__btn' type="submit">Kaydet</button>
             </form>
             <List users={users} />
