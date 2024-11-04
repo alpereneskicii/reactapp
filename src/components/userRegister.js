@@ -10,8 +10,7 @@ const FormContest = ({label, contents}) => {
         </div>
     )
 }
-const UserRegister = () => {
-    const [users, setUsers] = useState([]);
+const UserRegister = ({users,setUsers}) => {
 
     function saveUser(event) {
         event.preventDefault();

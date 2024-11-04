@@ -5,6 +5,8 @@ import './assets/app.css';
 
 function App() {
   const [checked, setChecked] = React.useState(false)
+  const [users, setUsers] = React.useState([]);
+
   return (
     <div className="app">
       <div>
@@ -13,7 +15,7 @@ function App() {
             return !prev
           })
         }} />
-        {checked && <UserRegister />}
+        {checked && <UserRegister users={users} setUsers={setUsers}/>}
       </div>
     </div>
   );
